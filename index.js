@@ -10,7 +10,9 @@ const app = express();
 
 
 
- dotenv.config();
+
+
+ //dotenv.config();
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json()); 
@@ -30,19 +32,19 @@ app.use(flash());
 
 app.use((req,res,next)=>{
     res.locals.success_msg = req.flash("success_msg")
-    //res.locals.error_msg = req.flash("error_msg")
+    res.locals.error_msg = req.flash("error_msg")
     next();
 })
 
-mongoose.connect(process.env.MONGO_URI,
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex:true,
-        useFindAndModify:false
+// mongoose.connect(process.env.DATABASE_URL,
+//     {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true,
+//         useCreateIndex:true,
+//         useFindAndModify:false
 
-   }
-).then(console.log("Connected to database")).catch((err)=> console.log(err));
+//    }
+// ).then(console.log("Connected to database")).catch((err)=> console.log(err));
 
 app.use("/", userRoute);
 

@@ -34,12 +34,8 @@ router.post("/", (req, res)=>{
             message,
             address
         });
-        newUser.save()
-        .then(user=>{
-            req.flash("success_msg", "Your message was successfully sent, We will get in touch soon");
-            res.redirect("/")
-        })
-        .catch(err=> console.log(err))
+        req.flash("success_msg", "Your message was successfully sent, We will get in touch soon");
+         res.redirect("/");
     }
 })
 module.exports = router;
