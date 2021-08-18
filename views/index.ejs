@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link rel = "stylesheet"   href="/styles/style.css" />
+
+    <title>My Resume</title>
+</head>
+<body>
+    <div class="wrapper">
+     <div class="profile-card">
+        <%  if (typeof errors != "undefined") { %>
+            <%  errors.forEach(function(error){ %>
+                   <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                       <%= error.msg %> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                  </div>   
+           <% }); %>    
+         <% }  %>
+        <% if (success_msg != "") { %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <%= success_msg %> 
+             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                 <span aria-hidden="true"></span>
+             </button>
+           </div> 
+          <% } %>
+         <div class="image-container">
+             <img src="/images/me.jpg" class="images"/>
+             <div class="title">
+                 <h2>Chukwuma Oparaeke</h2>
+             </div>
+         </div>
+         <div class="main-container">
+             <p><i class="fas fa-home"></i> Lagos, Nigeria.</p>
+             <p><i class="fas fa-user-graduate"></i> HNG Academy</p>
+             <p><i class="fas fa-user-tie"></i> Software Developer</p>
+             <p><i class="fas fa-envelope"></i> coparaeke@yahoo.com</p>
+             <p><i class="fas fa-phone"></i> 08099442608</p>
+             <hr />
+             <p><i class="fas fa-asterisk"></i> Skills</p>
+             <p>Node.js</p>
+             <div class="skills">
+                 <div class="bar" style="width:80%">80%</div>
+             </div>
+             <p>React</p>
+             <div class="skills">
+                 <div class="bar" style="width:80%">80%</div>
+             </div>
+             <p>Flutter / Dart</p>
+             <div class="skills">
+                 <div class="bar" style="width:80%">80%</div>
+             </div>
+             <div class="follow">
+                <p> Follow Me:</p>
+             </div>
+             <div class="social-media">
+               <a href="https://www.facebook.com/oparaeke.chukwuma" target ="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://github.com/chukmas20" target ="_blank"><i class="fab fa-github-square"></i></i></a>
+                <a href="https://www.linkedin.com/in/chukwuma-oparaeke-63510997/"target ="_blank" ><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/chukmas_20/"target ="_blank" ><i class="fab fa-instagram-square"></i></a>
+             </div>
+             <div class="form">
+                 <h4 class="contact">Leave A Message</h4>
+                 <%  if (typeof errors != "undefined") { %>
+                    <%  errors.forEach(function(error){ %>
+                           <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                               <%= error.msg %> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true"></span>
+                            </button>
+                          </div>   
+                   <% }); %>    
+                 <% }  %>
+
+                 <% if (success_msg != "") { %>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <%= success_msg %> 
+                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                         <span aria-hidden="true"></span>
+                     </button>
+                   </div> 
+                  <% } %>
+                <form action="/" method="POST" >
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Email address</label>
+                      <input type="email" class="form-control" placeholder="email" name="email" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Home Address</label>
+                        <input type="tel" class="form-control" placeholder="address" name="address"  aria-describedby="emailHelp">
+                      </div>
+                      <div>
+                          <label for="message" class="form-label">Message</label>
+                          <textarea cols="30" rows="10" placeholder="write a message" class="form-control" name="message" ></textarea>
+                      </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+             </div>
+         </div>
+    </div>
+</body>
+</html>
