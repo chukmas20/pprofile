@@ -1,20 +1,16 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
-  }
-
 
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
 const session = require("express-session");
+const dotenv = require("dotenv");
 const userRoute = require("./routes/routes.js")
-const {check, validationResult} = require("express-validator");
 const flash = require("connect-flash");
 const app = express();
 
 
-//dotenv.config();
+
+ dotenv.config();
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json()); 
@@ -51,8 +47,8 @@ mongoose.connect(process.env.MONGO_URI,
 app.use("/", userRoute);
 
 
-const PORT = process.env.Port  || 2000;
+const port = process.env.PORT  || 2000;
 
-app.listen(PORT, ()=>{
-    console.log(`App running on port${PORT}`);
+app.listen(port, ()=>{
+    console.log(`App running on port${port}`);
 })
